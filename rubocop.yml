@@ -1,0 +1,183 @@
+require: rubocop-rspec
+
+Documentation:
+  Enabled: false
+
+ClassLength:
+  Max: 180
+
+ModuleLength:
+  Max: 160
+
+LineLength:
+  Max: 130
+
+AbcSize:
+  Max: 25
+
+AccessorMethodName:
+  Enabled: false
+
+MethodCalledOnDoEndBlock:
+  Enabled: true
+
+MultilineOperationIndentation:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+ParameterLists:
+  CountKeywordArgs: false
+
+SymbolArray:
+  Enabled: true
+
+TrivialAccessors:
+  ExactNameMatch: true
+
+CollectionMethods:
+  Enabled: true
+
+PredicateName:
+  NamePrefix:
+    - is_
+    - have_
+  NamePrefixBlacklist:
+    - is_
+    - have_
+
+Performance/TimesMap:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+HasAndBelongsToMany:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+  
+Style/IfInsideElse:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/IfUnlessModifierOfIfUnless:
+  Enabled: false
+
+Style/NumericLiteralPrefix:
+  Enabled: false
+
+Style/MethodMissing:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/SafeNavigation:
+  Enabled: false
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Lint/RescueWithoutErrorClass:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+
+Layout/AlignHash:
+  Enabled: false
+
+Layout/AlignParameters:
+  Enabled: false
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+Rails/Date:
+  EnforcedStyle: strict
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+RSpec/DescribedClass:
+  Enabled: false
+RSpec/DescribeMethod:
+  Enabled: false
+RSpec/FilePath:
+  Enabled: false
+RSpec/InstanceVariable:
+  Enabled: false
+RSpec/MessageSpies:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+RSpec/LetSetup:
+  Enabled: false
+RSpec/AnyInstance:
+  Enabled: false
+RSpec/ExpectInHook:
+  Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
+RSpec/NamedSubject:
+  Enabled: false
+RSpec/NestedGroups:
+  Enabled: false
+RSpec/EmptyExampleGroup:
+  Enabled: false
+RSpec/ScatteredSetup:
+  Enabled: false
+RSpec/VerifiedDoubles:
+  Enabled: false
+RSpec/ScatteredLet:
+  Enabled: false
+RSpec/ReturnFromStub:
+  Enabled: false
+Rails/SkipsModelValidations:
+  Enabled: false
+RSpec/RepeatedExample:
+  Enabled: false
+RSpec/RepeatedDescription:
+  Enabled: false
+RSpec/OverwritingSetup:
+  Enabled: false
+RSpec/IteratedExpectation:
+  Enabled: false
+
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - client/node_modules/**/*
+    - config/unicorn.rb
+    - db/**/*
+    - spec/spec_helper.rb
+    - vendor/**/*
+    - bin/**/*
+    - lib/templates/**/*
+    - config/deploy.rb
+    - spec/teaspoon_env.rb
+
+Rails:
+  Enabled: true
