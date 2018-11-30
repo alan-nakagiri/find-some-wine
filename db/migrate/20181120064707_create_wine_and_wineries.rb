@@ -1,11 +1,10 @@
 class CreateWineAndWineries < ActiveRecord::Migration[5.2]
   def change
     create_table :wines do |t|
-      t.references :wineries, index: true, null: false
-      t.references :varietals
-      
+      t.references :winery, index: true, null: false
+
       t.string :name
-      t.string :type
+      t.string :category
       t.string :vintage
       t.string :abv
       t.string :state
@@ -15,15 +14,16 @@ class CreateWineAndWineries < ActiveRecord::Migration[5.2]
     end
 
     create_table :wineries do |t|
-      t.references :wines, index: true, null: false
-
       t.string :name
       t.string :address
+      t.string :city
+      t.string :state
+      t.string :zipcode
       t.decimal :longitude
       t.decimal :latitude
       t.string :phone
       t.string :email
-      
+
       t.timestamps
     end
 
@@ -43,18 +43,18 @@ class CreateWineAndWineries < ActiveRecord::Migration[5.2]
       t.string   :last_name
       t.string   :recovery_token
       t.datetime :recovery_token_expires_at
-      
+
       t.timestamps
     end
 
     create_table :access_tokens do |t|
-      t.references :users, index: true, null: false
+      t.references :user, index: true, null: false
       t.string :token, null: false
       t.datetime :expires_at
     end
 
     create_table :marked_wineries do |t|
-      t.references :users, index: true, null: false
+      t.references :user, index: true, null: false
       t.integer :winery_id, null: false
       t.integer :rating
       t.string :state
@@ -63,7 +63,7 @@ class CreateWineAndWineries < ActiveRecord::Migration[5.2]
     end
 
     create_table :marked_wines do |t|
-      t.references :users, index: true, null: false
+      t.references :user, index: true, null: false
       t.integer :wine_id, null: false
       t.integer :rating
       t.string :state
@@ -74,6 +74,13 @@ class CreateWineAndWineries < ActiveRecord::Migration[5.2]
     create_table :varietals do |t|
       t.string :name
 
+      t.timestamps
+    end
+
+    create_table :wine_profiles do |t|
+      t.string :varietal_id, null: false
+      t.string :wine_id, null: false
+      t.decimal :ratio
       t.timestamps
     end
   end

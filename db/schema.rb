@@ -16,10 +16,10 @@ ActiveRecord::Schema.define(version: 2018_11_20_064707) do
   enable_extension "plpgsql"
 
   create_table "access_tokens", force: :cascade do |t|
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.string "token", null: false
     t.datetime "expires_at"
-    t.index ["users_id"], name: "index_access_tokens_on_users_id"
+    t.index ["user_id"], name: "index_access_tokens_on_user_id"
   end
 
   create_table "identities", force: :cascade do |t|
@@ -34,23 +34,23 @@ ActiveRecord::Schema.define(version: 2018_11_20_064707) do
   end
 
   create_table "marked_wineries", force: :cascade do |t|
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.integer "winery_id", null: false
     t.integer "rating"
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_marked_wineries_on_users_id"
+    t.index ["user_id"], name: "index_marked_wineries_on_user_id"
   end
 
   create_table "marked_wines", force: :cascade do |t|
-    t.bigint "users_id", null: false
+    t.bigint "user_id", null: false
     t.integer "wine_id", null: false
     t.integer "rating"
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_marked_wines_on_users_id"
+    t.index ["user_id"], name: "index_marked_wines_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,32 +68,39 @@ ActiveRecord::Schema.define(version: 2018_11_20_064707) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "wine_profiles", force: :cascade do |t|
+    t.string "varietal_id", null: false
+    t.string "wine_id", null: false
+    t.decimal "ratio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "wineries", force: :cascade do |t|
-    t.bigint "wines_id", null: false
     t.string "name"
     t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
     t.decimal "longitude"
     t.decimal "latitude"
     t.string "phone"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["wines_id"], name: "index_wineries_on_wines_id"
   end
 
   create_table "wines", force: :cascade do |t|
-    t.bigint "wineries_id", null: false
-    t.bigint "varietals_id"
+    t.bigint "winery_id", null: false
     t.string "name"
-    t.string "type"
+    t.string "category"
     t.string "vintage"
     t.string "abv"
     t.string "state"
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["varietals_id"], name: "index_wines_on_varietals_id"
-    t.index ["wineries_id"], name: "index_wines_on_wineries_id"
+    t.index ["winery_id"], name: "index_wines_on_winery_id"
   end
 
 end
