@@ -1,3 +1,5 @@
-export default {
+import loadWineries from './loadWIneries'
 
+export default {
+  loadWineries
 }

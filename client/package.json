@@ -5,12 +5,15 @@
   "devDependencies": {},
   "dependencies": {
     "aphrodite": "^2.2.3",
+    "http-proxy-middleware": "^0.19.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",
     "react-scripts": "2.1.1",
     "redux": "^4.0.1",
-    "redux-saga": "^0.16.2"
+    "redux-saga": "^0.16.2",
+    "seamless-immutable": "^7.1.4",
+    "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
