@@ -17,22 +17,22 @@ export const get = (url) => {
   })
 }
 
-const csrfToken = () => {
+// const csrfToken = () => {
   // Cribbed from https://stackoverflow.com/a/7524621
   // I tried to do something like this:
   //   document.getElementsByTagName('meta').namedItem('csrf-token').getAttribute('content')
   // But sadly, `namedItem` API seems to take issue with capybara-webkit :(
 
-  const metaTags = document.getElementsByTagName('meta')
+//   const metaTags = document.getElementsByTagName('meta')
 
-  for (let i = 0; i < metaTags.length; i++) {
-    if (metaTags[i].getAttribute('name') === 'csrf-token') {
-      return metaTags[i].getAttribute('content')
-    }
-  }
+//   for (let i = 0; i < metaTags.length; i++) {
+//     if (metaTags[i].getAttribute('name') === 'csrf-token') {
+//       return metaTags[i].getAttribute('content')
+//     }
+//   }
 
-  return null
-}
+//   return null
+// }
 
 export default {
   wineries: {
