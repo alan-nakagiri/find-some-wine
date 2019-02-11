@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -88,12 +90,12 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = URI.parse(ENV['CANONICAL_URL']).host
 
   ActionMailer::Base.smtp_settings = {
-    port:                 '587',
-    address:              ENV['MANDRILL_SMTP_SERVER'],
-    user_name:            ENV['MANDRILL_USERNAME'],
-    password:             ENV['MANDRILL_PASSWORD'],
-    domain:               URI.parse(ENV['CANONICAL_URL']).host,
-    authentication:       :login, # or :plain for plain-text authentication
+    port: '587',
+    address: ENV['MANDRILL_SMTP_SERVER'],
+    user_name: ENV['MANDRILL_USERNAME'],
+    password: ENV['MANDRILL_PASSWORD'],
+    domain: URI.parse(ENV['CANONICAL_URL']).host,
+    authentication: :login, # or :plain for plain-text authentication
     enable_starttls_auto: true # or false for unencrypted connection
   }
   ActionMailer::Base.delivery_method = :smtp
