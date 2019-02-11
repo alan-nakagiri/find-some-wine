@@ -21,6 +21,7 @@ class App extends Component {
     ))
     return (
       <div className={css(styles.outerContainer)}>
+        <div>{'Wineries'}</div>
         {names}
       </div>
     );
