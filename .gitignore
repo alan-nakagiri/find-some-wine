@@ -40,3 +40,6 @@ node_modules
 
 # npm debug
 /client/npm-debug.*
+
+# Production
+/public
